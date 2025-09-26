@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Lusak Communication",
   description: "Fullstack Developer",
+  icons: {
+    icon: "/code.jpg", 
+  }
 };
 
 export default function RootLayout({

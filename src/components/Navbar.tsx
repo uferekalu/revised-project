@@ -78,7 +78,7 @@ const Navbar = () => {
                     ))}
                     <button
                         onClick={downloadCV}
-                        className="flex items-center gap-2 bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 hover:text-teal-200 transition-colors"
+                        className="flex items-center gap-2 bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 hover:text-teal-200 transition-colors cursor-pointer"
                         aria-label="Download CV"
                     >
                         <FaDownload className="w-4 h-4" />
@@ -109,7 +109,7 @@ const Navbar = () => {
                         ))}
                         <button
                             onClick={downloadCV}
-                            className="flex items-center gap-2 bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 hover:text-teal-200 transition-colors text-lg"
+                            className="flex items-center gap-2 bg-teal-600 text-white px-4 py-2 rounded-md hover:bg-teal-700 hover:text-teal-200 transition-colors text-lg cursor-pointer"
                             aria-label="Download CV"
                         >
                             <FaDownload className="w-5 h-5" />
