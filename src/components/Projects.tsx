@@ -1,12 +1,14 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FaGithub, FaEye } from 'react-icons/fa';
 import { projectsData } from '@/data/projectData';
 
 const Projects = () => {
+    const [activeCard, setActiveCard] = useState<string | null>(null);
+
     const cardVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -24,6 +26,11 @@ const Projects = () => {
     const contentVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.3, delay: 0.2 } },
+    };
+
+    const handleTap = (projectId: number) => {
+        const idStr = String(projectId);
+        setActiveCard((prev) => (prev === idStr ? null : idStr));
     };
 
     return (
@@ -45,6 +52,8 @@ const Projects = () => {
                             initial="hidden"
                             animate="visible"
                             whileHover="hover"
+                            role="button"
+                            onTap={() => handleTap(project.id)}
                             className="relative w-full h-80 rounded-lg overflow-hidden shadow-lg group cursor-pointer"
                         >
                             {/* Project Image */}
@@ -55,11 +64,11 @@ const Projects = () => {
                                 className="object-cover transition-all duration-300 group-hover:blur-sm"
                             />
 
-                            {/* Hover Overlay */}
+                            {/* Hover/Tap Overlay */}
                             <motion.div
                                 variants={overlayVariants}
                                 initial="hidden"
-                                animate="hidden"
+                                animate={activeCard === String(project.id) ? 'visible' : 'hidden'}
                                 whileHover="visible"
                                 className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center"
                             >
