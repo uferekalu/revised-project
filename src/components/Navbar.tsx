@@ -13,8 +13,8 @@ const Navbar = () => {
 
     const downloadCV = () => {
         const link = document.createElement('a');
-        link.href = '/assets/kalu_ufere.pdf';
-        link.download = 'cv.pdf';
+        link.href = '/assets/ufere_resume.pdf';
+        link.download = 'ufere_resume.pdf';
         link.click();
     };
 
