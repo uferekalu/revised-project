@@ -6,7 +6,7 @@ import { FaTwitter, FaFacebookF, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   const socialLinks = [
-    { icon: FaTwitter, href: 'https://x.com/lushak_tech', label: 'Twitter' },
+    // { icon: FaTwitter, href: 'https://x.com/lushak_tech', label: 'Twitter' },
     { icon: FaFacebookF, href: 'https://www.facebook.com/share/17XuC19WuV/', label: 'Facebook' },
     { icon: FaInstagram, href: 'https://www.instagram.com/kaluuferekalu?utm_source=qr&igsh=MXYzdmx0Z21mOHh3ZQ==', label: 'Instagram' },
   ];
