@@ -23,7 +23,7 @@ const Projects = () => {
 
   // 🔍 Filtering, Searching, Sorting
   const filteredAndSortedProjects = useMemo(() => {
-    let filtered = projectsData
+    const filtered = projectsData
       .filter((p) =>
         activeCategory === "All" ? true : p.tag.includes(activeCategory)
       )
