@@ -43,13 +43,17 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScrollEvent = () => setIsScrolled(window.scrollY > 50);
+    handleScrollEvent(); // sync with actual position on mount (e.g. reload while scrolled, or a #hash deep link), not just future scroll events
     window.addEventListener("scroll", handleScrollEvent);
     return () => window.removeEventListener("scroll", handleScrollEvent);
   }, []);
 
-  // While transparent, the navbar floats over Hero's dark video — always use
-  // light text there regardless of site theme. Once scrolled past Hero with
-  // an opaque background, switch to theme-aware text.
+  // While transparent, the navbar floats over Hero's video — always use light
+  // text there. A plain `bg-transparent` isn't reliable: video brightness
+  // varies frame to frame, so text contrast can't depend on it. Give the
+  // unscrolled navbar its own dark scrim, independent of the video/theme, so
+  // white text is always readable. Once scrolled to an opaque background,
+  // switch to theme-aware text.
   const navTextClass = isScrolled ? "text-foreground" : "text-white";
   const navLinkClass = isScrolled
     ? "text-foreground/80 hover:text-foreground"
@@ -60,7 +64,7 @@ const Navbar = () => {
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${navTextClass} ${
         isScrolled
           ? "backdrop-blur-xl bg-background/70 shadow-md border-b border-border"
-          : "bg-transparent"
+          : "bg-gradient-to-b from-black/55 via-black/25 to-transparent backdrop-blur-[2px]"
       }`}
       style={{ height: "80px" }}
     >
