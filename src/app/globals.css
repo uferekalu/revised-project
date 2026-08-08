@@ -145,6 +145,20 @@ body {
   max-width: 100vw;
 }
 
+/* Hide the visible scrollbar on mobile while keeping scroll functional */
+@media (max-width: 640px) {
+  html,
+  body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* legacy Edge/IE */
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Chromium Edge */
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

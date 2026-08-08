@@ -19,9 +19,6 @@ export const metadata: Metadata = {
   title: "Ufere Kalu | Full Stack Developer & Data Analyst",
   description:
     "Portfolio of Ufere Kalu — a Full Stack Developer and Data Analyst building scalable, elegant, data-driven software with React, Next.js, NestJS, and Python.",
-  icons: {
-    icon: "/code.jpg",
-  },
   openGraph: {
     title: "Ufere Kalu | Full Stack Developer & Data Analyst",
     description:

@@ -83,7 +83,6 @@ const Contact = () => {
           eyebrow="Get In Touch"
           title="Let's Work Together"
           subtitle="Have a project idea or need a developer for collaboration? Reach out and let's make something impactful together."
-          light
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
@@ -101,14 +100,14 @@ const Contact = () => {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 bg-white/10 hover:bg-white/15 transition-all rounded-[var(--radius-lg)] p-5 backdrop-blur-md border border-white/15 group"
+                className="flex items-center gap-4 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15 transition-all rounded-[var(--radius-lg)] p-5 backdrop-blur-md border border-black/10 dark:border-white/15 group"
               >
-                <Icon className="w-8 h-8 text-brand-300 group-hover:scale-110 transition-transform" />
+                <Icon className="w-8 h-8 text-brand-600 dark:text-brand-300 group-hover:scale-110 transition-transform" />
                 <div>
-                  <p className="text-sm text-white/70 font-semibold uppercase tracking-wide">
+                  <p className="text-sm text-muted-foreground font-semibold uppercase tracking-wide">
                     {label}
                   </p>
-                  <p className="text-white text-lg font-medium">{value}</p>
+                  <p className="text-foreground text-lg font-medium">{value}</p>
                 </div>
               </a>
             ))}

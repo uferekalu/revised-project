@@ -7,7 +7,7 @@ const backgroundClasses: Record<SectionBackground, string> = {
   base: "bg-background text-foreground",
   surface: "bg-surface text-foreground",
   brand:
-    "bg-gradient-to-br from-brand-950 via-neutral-950 to-brand-900 text-white",
+    "bg-gradient-to-br from-brand-50 via-white to-brand-100 text-neutral-900 dark:from-brand-950 dark:via-neutral-950 dark:to-brand-900 dark:text-white",
 };
 
 export type SectionProps = HTMLAttributes<HTMLElement> & {

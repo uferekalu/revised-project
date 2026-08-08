@@ -47,9 +47,17 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScrollEvent);
   }, []);
 
+  // While transparent, the navbar floats over Hero's dark video — always use
+  // light text there regardless of site theme. Once scrolled past Hero with
+  // an opaque background, switch to theme-aware text.
+  const navTextClass = isScrolled ? "text-foreground" : "text-white";
+  const navLinkClass = isScrolled
+    ? "text-foreground/80 hover:text-foreground"
+    : "text-white/85 hover:text-white";
+
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 text-foreground ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${navTextClass} ${
         isScrolled
           ? "backdrop-blur-xl bg-background/70 shadow-md border-b border-border"
           : "bg-transparent"
@@ -74,7 +82,7 @@ const Navbar = () => {
         <div className="flex items-center gap-3 md:hidden">
           <ThemeToggle />
           <button
-            className="text-2xl hover:text-brand-500 dark:hover:text-brand-400 focus:outline-none"
+            className="text-2xl hover:text-brand-400 focus:outline-none"
             onClick={toggleMenu}
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >
@@ -91,7 +99,7 @@ const Navbar = () => {
               onClick={(e) => handleScroll(e, href)}
               whileHover={{ scale: 1.06 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="relative font-medium text-foreground/80 hover:text-foreground after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-brand-500 after:transition-all hover:after:w-full"
+              className={`relative font-medium after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-brand-500 after:transition-all hover:after:w-full ${navLinkClass}`}
             >
               {label}
             </motion.a>

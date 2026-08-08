@@ -12,9 +12,13 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative overflow-hidden text-white">
+    <footer className="relative overflow-hidden text-neutral-900 dark:text-white">
       {/* Brand Gradient Animated Background */}
-      <div className="absolute inset-0 bg-[linear-gradient(120deg,#17142b,#43104f,#920af2,#43104f)] animate-gradient-flow opacity-95" />
+      <div
+        className="absolute inset-0 animate-gradient-flow opacity-95
+        bg-[linear-gradient(120deg,#f3e8ff,#e9d5ff,#920af2,#e9d5ff)]
+        dark:bg-[linear-gradient(120deg,#17142b,#43104f,#920af2,#43104f)]"
+      />
 
       {/* Wave SVG */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none rotate-180">
@@ -31,9 +35,9 @@ const Footer = () => {
           />
           <defs>
             <linearGradient id="footer-wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#17142b" />
+              <stop offset="0%" stopColor="#c084fc" />
               <stop offset="50%" stopColor="#920af2" />
-              <stop offset="100%" stopColor="#c084fc" />
+              <stop offset="100%" stopColor="#7c3aed" />
             </linearGradient>
           </defs>
         </svg>
@@ -49,7 +53,7 @@ const Footer = () => {
           className="text-center sm:text-left space-y-3"
         >
           <h3 className="text-2xl font-bold tracking-wide">Ufere Kalu</h3>
-          <p className="text-white/70 text-sm max-w-md leading-relaxed">
+          <p className="text-neutral-700 dark:text-white/70 text-sm max-w-md leading-relaxed">
             Full Stack Developer &amp; Data Analyst — building scalable
             software, elegant interfaces, and data-driven products.
           </p>
@@ -69,18 +73,19 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.15, y: -3 }}
-              className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300 shadow-lg backdrop-blur-md"
+              className="p-3 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 transition-all duration-300 shadow-lg backdrop-blur-md"
               aria-label={label}
             >
-              <Icon className="w-5 h-5 text-white" />
+              <Icon className="w-5 h-5 text-neutral-900 dark:text-white" />
             </motion.a>
           ))}
         </motion.div>
       </div>
 
       {/* Bottom Section */}
-      <div className="relative z-10 border-t border-white/10 pt-5 pb-8 text-center text-sm text-white/60">
-        &copy; {new Date().getFullYear()} <span className="font-semibold text-white">Ufere Kalu</span>. All rights reserved.
+      <div className="relative z-10 border-t border-black/10 dark:border-white/10 pt-5 pb-8 text-center text-sm text-neutral-600 dark:text-white/60">
+        &copy; {new Date().getFullYear()}{" "}
+        <span className="font-semibold text-neutral-900 dark:text-white">Ufere Kalu</span>. All rights reserved.
       </div>
     </footer>
   );
