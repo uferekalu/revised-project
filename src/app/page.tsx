@@ -9,21 +9,11 @@ import Skills from "@/components/Skills";
 export default function Home() {
   return (
     <main>
-      <section data-theme="dark" id="hero">
-        <Hero />
-      </section>
-      <section data-theme="light" id="about">
-        <About />
-      </section>
-      <section data-theme="light" id="skills">
-        <Skills />
-      </section>
-      <section data-theme="dark" id="projects">
-        <Projects />
-      </section>
-      <section data-theme="light" id="contact">
-        <Contact />
-      </section>
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Contact />
     </main>
   );
 }

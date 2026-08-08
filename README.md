@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ufere Kalu — Portfolio
 
-## Getting Started
+Personal portfolio site for Ufere Kalu, Full Stack Developer & Data Analyst.
 
-First, run the development server:
+Built with Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS v4, and framer-motion. Single-page layout (`src/app/page.tsx`) with a token-driven design system and a light/dark theme switcher.
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` — start the dev server (Turbopack)
+- `npm run build` — production build (Turbopack)
+- `npm run start` — serve the production build
+- `npm run lint` — run ESLint
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  app/
+    layout.tsx      root layout: fonts, metadata, ThemeProvider, Navbar/Footer
+    page.tsx         page composition (Hero, About, Skills, Projects, Contact)
+    globals.css       design tokens (brand/neutral scales, semantic tokens, dark mode)
+  components/
+    ui/               reusable UI kit (Button, Card, Badge, Section, Input, ThemeToggle, ...)
+    Navbar.tsx, Hero.tsx, About.tsx, Skills.tsx, Projects.tsx, Contact.tsx, Footer.tsx
+    theme-provider.tsx
+  lib/
+    motion.ts         shared framer-motion variants
+    cn.ts              tiny classname-join helper
+  data/
+    projectData.ts    project content shown in the Projects section
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Design system
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project follows a strict design-token + UI-kit approach — no component should hardcode a raw color, radius, or one-off animation curve. See **[CLAUDE.md](./CLAUDE.md)** for the full token reference, UI kit catalog, and conventions for adding new sections. There's also a Claude Code project skill at `.claude/skills/design-system/` that encodes the same rules procedurally.
 
-## Deploy on Vercel
+## Branch workflow
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`master` is protected — no direct pushes. Changes land via PRs from `feature/PR-<n>-<description>` branches.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+Deploys cleanly to [Vercel](https://vercel.com/new) or any Next.js-compatible host.
